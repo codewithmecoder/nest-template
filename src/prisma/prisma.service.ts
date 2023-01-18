@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
+import { env } from 'common/env';
 
 @Injectable()
 export class PrismaService extends PrismaClient {
@@ -7,7 +8,7 @@ export class PrismaService extends PrismaClient {
     super({
       datasources: {
         db: {
-          url: process.env.DATABASE_URL,
+          url: env.database.url,
         },
       },
     });
